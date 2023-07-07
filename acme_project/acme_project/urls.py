@@ -1,4 +1,5 @@
 from django.conf import settings
+from django.contrib.auth import views
 # Импортируем функцию, позволяющую серверу разработки отдавать файлы.
 from django.conf.urls.static import static
 from django.contrib import admin
@@ -8,4 +9,5 @@ urlpatterns = [
     path('', include('pages.urls')),
     path('admin/', admin.site.urls),
     path('birthday/', include('birthday.urls')),
+    path('auth/', include('django.contrib.auth.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
